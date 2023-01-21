@@ -1,0 +1,60 @@
+// Graph Data Structure
+
+#include<iostream>
+using namespace std;
+
+int graph[10][10] ;
+int edge;
+
+// for undirected graph
+
+//add edge with user input
+void addedge() {
+	int x, y;
+	cout << "enter # of edges to add: ";
+	cin >> edge;
+	for (int i = 0; i < edge; i++) {
+		cout << "Edges between? ";
+		cout << "enter 1st vertex";
+		cin >> x;
+		cout << "enter 2nd vertex";
+		cin >> y;
+		graph[x][y] = 1;
+		graph[y][x] = 1;
+	}
+}
+
+//delete edge with user input
+void deledge() {
+	int x, y;
+	cout << "enter # of edges to delete: ";
+	cin >> edge;
+	for (int i = 0; i < edge; i++) {
+		cout << "Edges between? ";
+		cout << "enter 1st vertex";
+		cin >> x;
+		cout << "enter 2nd vertex";
+		cin >> y;
+		graph[x][y] = 0;
+		graph[y][x] = 0;
+	}
+}
+
+void print(int v) {
+	for (int i = 0; i < v; i++) {
+		for (int j = 0; j < v; j++) {
+			cout << " " << graph[i][j];
+		}
+		cout << endl;
+	}
+}
+
+int main() {
+	int v;
+	cout << "enter # of vertices: ";
+	cin >> v;
+	addedge();
+	print(v);
+	deledge();
+	print(v);
+}
