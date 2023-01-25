@@ -162,3 +162,29 @@ int main() {
 	pop();
 	print();
 }
+
+// String reversal using Stack ADT
+// 2 stacks are used
+
+#include<stack>
+
+int main() {
+	char arr[20] = {};
+	int n = sizeof(arr) / sizeof(arr[0]);
+	stack<char> stk1, stk2;
+
+	cout << "input text: " ;
+	cin.getline(arr, 20);
+	for (int i = 0; i < n; i++) {
+		stk1.push(arr[i]);
+	}
+	while (!stk1.empty()) {
+		stk2.push(stk1.top());
+		stk1.pop();
+	}
+	cout << "output text: ";
+	for (int i = 0; i < n; i++) {
+		cout << stk2.top();
+		stk2.pop();
+	}
+}
