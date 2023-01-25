@@ -188,3 +188,50 @@ int main() {
 		stk2.pop();
 	}
 }
+
+// Array DS 
+// Traversal, Insertion and deletion
+
+#include<iostream>
+
+using namespace std;
+
+void traverse(int arr[],int arr_size) {
+	for (int i = 0; i < arr_size; i++) {
+		cout << arr[i] << " ";
+	}
+}
+
+void insert(int arr[], int &arr_size) {
+	int pos, val;
+	cout << "\nenter position to insert" << endl;
+	cin >> pos;
+	cout << "enter value to insert" << endl;
+	cin >> val;
+	for (int i = arr_size - 1; i >= pos; i--) {
+		arr[i + 1] = arr[i];
+	}
+	arr[pos] = val;
+	arr_size++;
+}
+
+void deletion(int arr[],int &arr_size) {
+	int ind;
+	cout << "\nenter position to delete" << endl;
+	cin >> ind;
+	for (int i = ind; i <= arr_size-1; i++) {
+		arr[i] = arr[i + 1];
+	}
+	arr_size--;
+}
+
+int main() {
+	int A[] = { 2,4,6,8 };
+	int s = sizeof(A) / sizeof(A[0]);
+	traverse(A, s);
+	insert(A, s);
+	traverse(A, s);
+	deletion(A, s);
+	traverse(A, s);
+
+}
