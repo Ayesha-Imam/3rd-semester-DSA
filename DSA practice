@@ -116,3 +116,49 @@ int main() {
 	g.addnode(5);
 	g.print();
 }
+
+// Stack Ds
+// Stack push and pop
+
+#include<iostream>
+using namespace std;
+
+int item, stak[3] = {}, top = -1, n = 3;
+void push() {
+	cout << "Enter number to insert in stack" << endl;
+	cin >> item;
+	if (top == n - 1) {
+		cout << "stack overflow" << endl;
+	}
+	else {
+		top = top + 1;
+		stak[top] = item;
+	}
+}
+
+void pop() {
+	if (top == -1) {
+		cout << "stack underflow" << endl;
+	}
+	else {
+		cout << "the deleted element is: " << stak[top] << endl;
+		top = top - 1;
+	}
+}
+
+void print() {
+	cout << "stack" << endl;
+	for (int i = 0; i <= top; i++) {
+		cout << stak[i] << endl;
+	}
+}
+
+int main() {
+	push();
+	push();
+	push();
+	push();
+	print();
+	pop();
+	print();
+}
